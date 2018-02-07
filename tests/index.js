@@ -1,4 +1,4 @@
-import Inferno, { render, Component } from 'inferno';
+import { render, Component } from 'inferno';
 import TransitionGroup from './../src/index';
 
 /* global describe,expect,it,sinon */

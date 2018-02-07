@@ -1,5 +1,6 @@
-import { cloneVNode, createVNode, Component } from 'inferno';
+import { directClone, createVNode, createComponentVNode, Component } from 'inferno';
 import { getChildMapping, mergeChildMappings } from './TransitionChildMapping';
+import { ChildFlags, VNodeFlags } from 'inferno-vnode-flags';
 import { assign } from './util';
 
 const identity = i => i;
@@ -163,16 +164,25 @@ export class TransitionGroup extends Component {
 	render({ childFactory, transitionLeave, transitionName, transitionAppear, transitionEnter, transitionLeaveTimeout, transitionEnterTimeout, transitionAppearTimeout, component, ...props }) {
 		// TODO: we could get rid of the need for the wrapper node
 		// by cloning a single child
-		let childrenToRender = [];
-		for (let key in this.state.children) if (this.state.children.hasOwnProperty(key)) {
-			let child = this.state.children[key];
+		let childrenToRender = [],
+			child;
+
+		for (const key in this.state.children) if (this.state.children.hasOwnProperty(key)) {
+			child = this.state.children[key];
 			if (child) {
-				let ref = instance => this.refs[key] = instance,
-					el = cloneVNode(childFactory(child), { key, ref });
+				let el = directClone(childFactory(child));
+				el.ref = instance => this.refs[key] = instance;
 				childrenToRender.push(el);
 			}
 		}
 
-		return createVNode(typeof component === 'string' ? 2 : 16, component, props && props.className, childrenToRender, props);
+		if (typeof component === 'string') {
+			return createVNode(VNodeFlags.HtmlElement, component, props ? props.className : null, childrenToRender, ChildFlags.UnknownChildren, props);
+		}
+
+		return createComponentVNode(VNodeFlags.ComponentUnknown, component, {
+			children: childrenToRender,
+			...props
+		});
 	}
 }

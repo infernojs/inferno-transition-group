@@ -6,7 +6,7 @@ module.exports = function(config) {
 		frameworks: ['mocha', 'chai-sinon'],
 		reporters: ['mocha'],
 
-		singleRun: true,
+		singleRun: false,
 
 		files: [
 			'tests/**/*.js'
