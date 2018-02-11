@@ -1,7 +1,7 @@
 {
   "name": "inferno-transition-group",
   "amdName": "InfernoTransitionGroup",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "transition-group UI component for Inferno",
   "main": "dist/inferno-transition-group.js",
   "minified:main": "dist/inferno-transition-group.min.js",
