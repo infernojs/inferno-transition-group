@@ -36,7 +36,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
-    "babel-plugin-inferno": "4.0.0-30",
+    "babel-plugin-inferno": "4.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-classes": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -60,17 +60,17 @@
     "npm-run-all": "^4.1.2",
     "phantomjs-prebuilt": "^2.1.16",
     "pretty-bytes-cli": "^2.0.0",
-    "rollup": "^0.55.3",
+    "rollup": "^0.55.5",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.3.0",
-    "sinon": "^4.2.2",
+    "sinon": "^4.3.0",
     "sinon-chai": "^2.14.0",
     "style-loader": "^0.20.1",
-    "uglify-js": "^3.3.9",
-    "webpack": "^3.10.0"
+    "uglify-js": "^3.3.10",
+    "webpack": "^3.11.0"
   },
   "dependencies": {
-    "inferno": "4.0.0-19",
-    "inferno-vnode-flags": "4.0.0-19"
+    "inferno": "^4",
+    "inferno-vnode-flags": "^4"
   }
 }
